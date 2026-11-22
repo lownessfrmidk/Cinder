@@ -1,0 +1,22 @@
+# Generate the Xcode project with:  brew install xcodegen && xcodegen
+name: Cinder
+options:
+  deploymentTarget: { iOS: "17.0" }
+targets:
+  Cinder:
+    type: application
+    platform: iOS
+    sources: [Sources]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: dev.cinder.app
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        INFOPLIST_KEY_NSLocalNetworkUsageDescription: Cinder talks to this device over the local network to install apps.
+        INFOPLIST_KEY_UIBackgroundModes: fetch processing
+    info:
+      path: Info.plist
+      properties:
+        BGTaskSchedulerPermittedIdentifiers: [dev.cinder.refresh]
+        UIBackgroundModes: [fetch, processing]
+        NSLocalNetworkUsageDescription: Cinder talks to this device over the local network to install apps.
